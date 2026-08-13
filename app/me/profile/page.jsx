@@ -1,8 +1,5 @@
-import { redirect } from "next/navigation";
 import Link from "next/link";
-import { getSession } from "@/lib/auth";
-import { ensureDatabaseConnected } from "@/lib/db";
-import User from "@/models/User";
+import { requirePageUser } from "@/lib/pageAuth";
 import AlumniProfile from "@/models/AlumniProfile";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -10,14 +7,10 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Avatar } from "@/components/ui/Avatar";
+import { LogoutButton } from "@/components/layout/LogoutButton";
 
 export default async function MyProfilePage() {
-  const session = await getSession();
-  if (!session) redirect("/login");
-
-  await ensureDatabaseConnected();
-  const me = await User.findById(session.sub).lean();
-  if (!me) redirect("/login");
+  const me = await requirePageUser();
 
   const profile = await AlumniProfile.findOne({ userId: me._id }).lean();
 
@@ -138,6 +131,10 @@ export default async function MyProfilePage() {
           </Link>
           .
         </p>
+
+        <div className="mt-6 lg:hidden">
+          <LogoutButton />
+        </div>
       </main>
       <Footer />
     </>

@@ -1,19 +1,10 @@
-import { redirect } from "next/navigation";
-import { getSession } from "@/lib/auth";
-import { ensureDatabaseConnected } from "@/lib/db";
-import User from "@/models/User";
+import { requireVerifiedPageUser } from "@/lib/pageAuth";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FeedClient } from "@/components/feed/FeedClient";
 
 export default async function FeedPage() {
-  const session = await getSession();
-  if (!session) redirect("/login");
-
-  await ensureDatabaseConnected();
-  const me = await User.findById(session.sub).lean();
-  if (!me) redirect("/login");
-  if (me.verificationStatus !== "verified") redirect("/pending");
+  const me = await requireVerifiedPageUser();
 
   return (
     <>

@@ -10,6 +10,7 @@ const LABELS = {
   message: (name) => `${name} sent you a message`,
   post_like: (name) => `${name} liked your post`,
   post_comment: (name) => `${name} commented on your post`,
+  account_verified: () => "Your account has been approved — welcome to the Parivaar!",
 };
 
 function linkFor(n) {
@@ -23,7 +24,11 @@ function linkFor(n) {
       return `/messages/${n.data?.conversationId || ""}`;
     case "post_like":
     case "post_comment":
-      return "/feed";
+      // Anchors to the specific post on the feed — see the id="post-…"
+      // attribute + scroll-into-view in FeedClient.
+      return n.data?.postId ? `/feed#post-${n.data.postId}` : "/feed";
+    case "account_verified":
+      return "/me/profile";
     default:
       return "/notifications";
   }

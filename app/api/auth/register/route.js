@@ -3,6 +3,7 @@ import { ensureDatabaseConnected } from "@/lib/db";
 import User from "@/models/User";
 import AlumniProfile from "@/models/AlumniProfile";
 import { hashPassword, signSession, setSessionCookie } from "@/lib/auth";
+import { sendWelcomeEmail } from "@/lib/email";
 
 const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "")
   .split(",")
@@ -66,6 +67,9 @@ export async function POST(request) {
 
   const token = signSession(user);
   await setSessionCookie(token);
+
+  // Don't let a slow/misconfigured SMTP provider hold up registration.
+  sendWelcomeEmail(user).catch(() => {});
 
   return NextResponse.json({
     user: {

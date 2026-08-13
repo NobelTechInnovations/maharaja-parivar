@@ -1,18 +1,12 @@
 import { redirect } from "next/navigation";
-import { getSession } from "@/lib/auth";
-import { ensureDatabaseConnected } from "@/lib/db";
-import User from "@/models/User";
+import { requirePageUser } from "@/lib/pageAuth";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { AdminClient } from "@/components/admin/AdminClient";
 
 export default async function AdminPage() {
-  const session = await getSession();
-  if (!session) redirect("/login");
-
-  await ensureDatabaseConnected();
-  const me = await User.findById(session.sub);
-  if (!me || me.role !== "admin") redirect("/");
+  const me = await requirePageUser();
+  if (me.role !== "admin") redirect("/");
 
   return (
     <>

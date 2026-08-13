@@ -25,6 +25,12 @@ const UserSchema = new Schema(
     // Set once the (future) OTP flow actually runs. Left false for every
     // account created through the current email+password flow.
     emailOtpVerified: { type: Boolean, default: false },
+
+    // Forgot-password flow. Only the SHA-256 hash of the token is ever
+    // stored — the raw token exists only in the emailed link, same
+    // pattern as a password itself.
+    resetTokenHash: { type: String, select: false },
+    resetTokenExpires: { type: Date, select: false },
   },
   { timestamps: true }
 );

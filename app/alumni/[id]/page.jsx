@@ -1,6 +1,6 @@
 import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
-import { getSession } from "@/lib/auth";
+import { getSession, clearSessionCookie } from "@/lib/auth";
 import { ensureDatabaseConnected } from "@/lib/db";
 import User from "@/models/User";
 import AlumniProfile from "@/models/AlumniProfile";
@@ -25,10 +25,16 @@ export default async function AlumniProfilePage({ params }) {
   }
 
   const session = await getSession();
-  const me = session ? await User.findById(session.sub) : null;
+  let me = session ? await User.findById(session.sub) : null;
 
-  // A stale/invalid session cookie — treat as guest rather than erroring.
-  if (session && !me) redirect(`/login?next=${encodeURIComponent(profilePath)}`);
+  // A stale/invalid session cookie (deleted account, or a token from
+  // before JWT_SECRET changed) — this page supports guests anyway, so
+  // just clear the cookie and fall through as one rather than bouncing
+  // someone to /login who thinks they're already signed in.
+  if (session && !me) {
+    await clearSessionCookie();
+    me = null;
+  }
 
   if (me && String(id) === String(me._id)) redirect("/me/profile");
 

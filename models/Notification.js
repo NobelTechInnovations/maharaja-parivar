@@ -9,6 +9,7 @@ const NOTIFICATION_TYPES = [
   "message",
   "post_like",
   "post_comment",
+  "account_verified",
 ];
 
 const NotificationSchema = new Schema(

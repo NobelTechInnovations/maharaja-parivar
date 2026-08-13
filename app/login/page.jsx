@@ -5,7 +5,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Field, Input } from "@/components/ui/Input";
+import { PasswordInput } from "@/components/ui/PasswordInput";
 import { Button } from "@/components/ui/Button";
+import { BackLink } from "@/components/ui/BackLink";
+import { Spinner } from "@/components/ui/Spinner";
 
 // Only ever follow a same-site path — never let a `next` value redirect
 // off this domain.
@@ -54,9 +57,12 @@ function LoginForm() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-16">
-      <Link href="/" className="mb-8 self-start font-display text-lg text-ink">
-        Maharaja Parivaar
-      </Link>
+      <div className="mb-8 flex items-center justify-between">
+        <BackLink fallbackHref="/" />
+        <Link href="/" className="font-display text-lg text-ink">
+          Maharaja Parivaar
+        </Link>
+      </div>
 
       <Card className="p-7 sm:p-9">
         <h1 className="text-lg font-semibold text-ink">Log in</h1>
@@ -79,9 +85,15 @@ function LoginForm() {
               placeholder="you@example.com"
             />
           </Field>
-          <Field label="Password">
-            <Input
-              type="password"
+          <Field
+            label="Password"
+            hint={
+              <Link href="/forgot-password" className="text-maroon hover:underline">
+                Forgot password?
+              </Link>
+            }
+          >
+            <PasswordInput
               required
               value={form.password}
               onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))}
@@ -94,6 +106,7 @@ function LoginForm() {
           )}
 
           <Button type="submit" size="lg" className="w-full" disabled={loading}>
+            {loading && <Spinner size={15} />}
             {loading ? "Logging in…" : "Log in"}
           </Button>
         </form>

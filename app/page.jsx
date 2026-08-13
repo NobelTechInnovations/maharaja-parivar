@@ -135,7 +135,7 @@ export default async function HomePage() {
           className="relative overflow-hidden"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, rgba(33,28,20,0.6) 0%, rgba(33,28,20,0.78) 100%), radial-gradient(1100px 480px at 15% -10%, rgba(138,46,42,0.3), transparent 60%), radial-gradient(900px 420px at 100% 0%, rgba(31,58,92,0.3), transparent 55%), url('/images/campus-hero.jpg')",
+              "linear-gradient(180deg, rgba(33,28,20,0.6) 0%, rgba(33,28,20,0.78) 100%), radial-gradient(1100px 480px at 15% -10%, rgba(138,46,42,0.3), transparent 60%), radial-gradient(900px 420px at 100% 0%, rgba(31,58,92,0.3), transparent 55%), url('/images/campus-hero1.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

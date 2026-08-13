@@ -33,6 +33,17 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Room for the fixed MobileTabBar (components/layout/MobileTabBar.jsx),
+   which only renders below the `lg` breakpoint. Matches its own
+   safe-area padding so content never sits under the notch/home-indicator
+   area either. */
+@media (max-width: 1023.98px) {
+  body {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom));
+  }
 }
 
 button,
@@ -43,7 +54,7 @@ textarea {
 }
 
 a {
-  color: inherit;
+  /* color: inherit;  */
 }
 
 ::selection {

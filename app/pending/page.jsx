@@ -1,20 +1,12 @@
 import { redirect } from "next/navigation";
-import Link from "next/link";
-import { ensureDatabaseConnected } from "@/lib/db";
-import User from "@/models/User";
-import { getSession } from "@/lib/auth";
+import { requirePageUser } from "@/lib/pageAuth";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { LogoutButton } from "@/components/layout/LogoutButton";
 import { Clock } from "lucide-react";
 
 export default async function PendingPage() {
-  const session = await getSession();
-  if (!session) redirect("/login");
-
-  await ensureDatabaseConnected();
-  const user = await User.findById(session.sub);
-  if (!user) redirect("/login");
+  const user = await requirePageUser();
   if (user.verificationStatus !== "pending") redirect("/");
 
   return (

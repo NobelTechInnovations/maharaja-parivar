@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Avatar } from "@/components/ui/Avatar";
-import { UserPlus, Handshake, MessageCircle, Heart, MessageSquare, Bell } from "lucide-react";
+import { UserPlus, Handshake, MessageCircle, Heart, MessageSquare, Bell, BadgeCheck } from "lucide-react";
 
 const ICONS = {
   follow: UserPlus,
@@ -13,6 +13,7 @@ const ICONS = {
   message: MessageCircle,
   post_like: Heart,
   post_comment: MessageSquare,
+  account_verified: BadgeCheck,
 };
 
 function timeAgo(iso) {

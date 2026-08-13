@@ -1,29 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Field, Input } from "@/components/ui/Input";
+import { PasswordInput } from "@/components/ui/PasswordInput";
 import { Button } from "@/components/ui/Button";
+import { BackLink } from "@/components/ui/BackLink";
+import { Spinner } from "@/components/ui/Spinner";
 
 const initialForm = { name: "", email: "", password: "", phone: "" };
 
 export default function RegisterPage() {
   const router = useRouter();
   const [form, setForm] = useState(initialForm);
+  const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [emailStatus, setEmailStatus] = useState("idle"); // idle | checking | taken | available
 
   function update(field) {
     return (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
   }
 
+  // Debounced "is this email already registered" check, so people find
+  // out before they fill in the rest of the form rather than after.
+  useEffect(() => {
+    const email = form.email.trim();
+    if (!email.includes("@")) {
+      setEmailStatus("idle");
+      return;
+    }
+    setEmailStatus("checking");
+    const timeout = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/auth/check-email?email=${encodeURIComponent(email)}`);
+        const data = await res.json();
+        setEmailStatus(data.exists ? "taken" : "available");
+      } catch {
+        setEmailStatus("idle");
+      }
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [form.email]);
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
-    setLoading(true);
 
+    if (!agreed) {
+      setError("Please agree to the Terms & Community Guidelines to continue.");
+      return;
+    }
+    if (emailStatus === "taken") {
+      setError("An account with this email already exists.");
+      return;
+    }
+
+    setLoading(true);
     try {
       const res = await fetch("/api/auth/register", {
         method: "POST",
@@ -65,12 +100,16 @@ export default function RegisterPage() {
         </div>
 
         <Card className="p-7 sm:p-9">
-          <div className="mb-6 lg:hidden">
+          <div className="mb-6 flex items-center justify-between lg:hidden">
+            <BackLink fallbackHref="/" />
             <Link href="/" className="font-display text-lg text-ink">
               Maharaja Parivaar
             </Link>
           </div>
-          <h2 className="text-lg font-semibold text-ink">Create your account</h2>
+          <div className="hidden lg:block">
+            <BackLink fallbackHref="/" />
+          </div>
+          <h2 className="mt-4 text-lg font-semibold text-ink lg:mt-3">Create your account</h2>
           <p className="mt-1 text-sm text-muted">
             Already registered? <Link href="/login" className="text-maroon hover:underline">Log in</Link>.
           </p>
@@ -80,7 +119,11 @@ export default function RegisterPage() {
               <Input required value={form.name} onChange={update("name")} placeholder="Jitendra Sain" />
             </Field>
 
-            <Field label="Email">
+            <Field
+              label="Email"
+              error={emailStatus === "taken" ? "An account with this email already exists." : ""}
+              hint={emailStatus === "checking" ? "Checking…" : emailStatus === "available" ? "Available ✓" : ""}
+            >
               <Input
                 type="email"
                 required
@@ -92,8 +135,7 @@ export default function RegisterPage() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Password" hint="At least 8 characters">
-                <Input
-                  type="password"
+                <PasswordInput
                   required
                   minLength={8}
                   value={form.password}
@@ -106,11 +148,27 @@ export default function RegisterPage() {
               </Field>
             </div>
 
+            <label className="flex cursor-pointer items-start gap-2.5 text-sm text-muted">
+              <input
+                type="checkbox"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                className="mt-0.5 h-4 w-4 accent-maroon"
+              />
+              <span>
+                I agree to the{" "}
+                <Link href="/terms" target="_blank" className="text-maroon hover:underline">
+                  Terms &amp; Community Guidelines
+                </Link>
+              </span>
+            </label>
+
             {error && (
               <p className="rounded-lg bg-maroon-soft px-3.5 py-2.5 text-sm text-maroon">{error}</p>
             )}
 
-            <Button type="submit" size="lg" className="w-full" disabled={loading}>
+            <Button type="submit" size="lg" className="w-full" disabled={loading || !agreed}>
+              {loading && <Spinner size={15} />}
               {loading ? "Creating your account…" : "Create account"}
             </Button>
 

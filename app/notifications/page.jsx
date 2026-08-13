@@ -1,18 +1,10 @@
-import { redirect } from "next/navigation";
-import { getSession } from "@/lib/auth";
-import { ensureDatabaseConnected } from "@/lib/db";
-import User from "@/models/User";
+import { requirePageUser } from "@/lib/pageAuth";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { NotificationsClient } from "@/components/notifications/NotificationsClient";
 
 export default async function NotificationsPage() {
-  const session = await getSession();
-  if (!session) redirect("/login");
-
-  await ensureDatabaseConnected();
-  const me = await User.findById(session.sub);
-  if (!me) redirect("/login");
+  await requirePageUser();
 
   return (
     <>

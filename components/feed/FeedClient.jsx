@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Avatar } from "@/components/ui/Avatar";
+import { cn } from "@/lib/cn";
 import { ImagePlus, X } from "lucide-react";
 
 function timeAgo(iso) {
@@ -53,7 +55,9 @@ function PostComments({ postId, open }) {
         <div key={c.id} className="flex items-start gap-2.5">
           <Avatar name={c.author.name} photoUrl={c.author.photoUrl} size={28} />
           <div className="rounded-xl bg-panel-soft px-3 py-2 text-sm">
-            <span className="font-medium text-ink">{c.author.name}</span>{" "}
+            <Link href={`/alumni/${c.author.id}`} className="font-medium text-ink hover:underline">
+              {c.author.name}
+            </Link>{" "}
             <span className="text-ink">{c.text}</span>
           </div>
         </div>
@@ -73,15 +77,23 @@ function PostComments({ postId, open }) {
   );
 }
 
-function PostCard({ post, onLike }) {
+function PostCard({ post, onLike, highlighted }) {
   const [openComments, setOpenComments] = useState(false);
 
   return (
-    <Card className="p-5">
+    <Card
+      id={`post-${post.id}`}
+      className={cn(
+        "scroll-mt-24 p-5 transition-shadow",
+        highlighted && "ring-2 ring-maroon/50"
+      )}
+    >
       <div className="flex items-center gap-3">
         <Avatar name={post.author.name} photoUrl={post.author.photoUrl} size={40} />
         <div>
-          <div className="text-sm font-semibold text-ink">{post.author.name}</div>
+          <Link href={`/alumni/${post.author.id}`} className="text-sm font-semibold text-ink hover:underline">
+            {post.author.name}
+          </Link>
           <div className="text-xs text-muted">{timeAgo(post.createdAt)}</div>
         </div>
       </div>
@@ -125,6 +137,7 @@ export function FeedClient({ me }) {
   const [posting, setPosting] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
   const [imageUploading, setImageUploading] = useState(false);
+  const [highlightedId, setHighlightedId] = useState(null);
   const fileRef = useRef(null);
 
   async function load() {
@@ -147,6 +160,21 @@ export function FeedClient({ me }) {
   useEffect(() => {
     load();
   }, []);
+
+  // Coming from a notification like "so-and-so commented on your post" —
+  // jump to and briefly highlight that exact post.
+  useEffect(() => {
+    if (loading || posts.length === 0) return;
+    const hash = window.location.hash;
+    if (!hash.startsWith("#post-")) return;
+    const id = hash.replace("#post-", "");
+    const el = document.getElementById(`post-${id}`);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    setHighlightedId(id);
+    const timeout = setTimeout(() => setHighlightedId(null), 2500);
+    return () => clearTimeout(timeout);
+  }, [loading, posts]);
 
   async function handleImagePick(e) {
     const file = e.target.files?.[0];
@@ -261,7 +289,12 @@ export function FeedClient({ me }) {
           </p>
         )}
         {posts.map((post) => (
-          <PostCard key={post.id} post={post} onLike={handleLike} />
+          <PostCard
+            key={post.id}
+            post={post}
+            onLike={handleLike}
+            highlighted={highlightedId === String(post.id)}
+          />
         ))}
       </div>
     </div>
