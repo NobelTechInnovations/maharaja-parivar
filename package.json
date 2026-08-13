@@ -1,0 +1,29 @@
+{
+  "name": "maharaja-parivaar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Maharaja Parivaar — the verified alumni network of University Maharaja's College, Jaipur",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.474.0",
+    "mongoose": "^8.9.5",
+    "next": "^16.2.12",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "postcss": "^8.5.23",
+    "tailwindcss": "^4.3.3"
+  }
+}

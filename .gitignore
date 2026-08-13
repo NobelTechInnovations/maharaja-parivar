@@ -1,0 +1,11 @@
+node_modules
+.next
+.env.local
+.env
+*.log
+.DS_Store
+
+# Uploaded images (local disk storage — see README for why this doesn't
+# work on Vercel; keep the folder tracked, not its contents)
+public/uploads/*
+!public/uploads/.gitkeep
