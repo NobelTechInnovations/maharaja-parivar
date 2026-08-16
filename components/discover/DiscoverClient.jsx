@@ -81,7 +81,7 @@ export function DiscoverClient() {
         {loading && <p className="text-sm text-muted">Searching…</p>}
         {error && <p className="text-sm text-maroon">{error}</p>}
         {!loading && !error && searched && results.length === 0 && (
-          <p className="text-sm text-muted">No Maharajians match that search yet.</p>
+          <p className="text-sm text-muted">No Maharaja Fellow match that search yet.</p>
         )}
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

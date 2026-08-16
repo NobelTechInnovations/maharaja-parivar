@@ -219,10 +219,10 @@ export function FeedClient({ me }) {
       p.map((post) =>
         post.id === id
           ? {
-              ...post,
-              likedByMe: !post.likedByMe,
-              likeCount: post.likeCount + (post.likedByMe ? -1 : 1),
-            }
+            ...post,
+            likedByMe: !post.likedByMe,
+            likeCount: post.likeCount + (post.likedByMe ? -1 : 1),
+          }
           : post
       )
     );
@@ -238,7 +238,7 @@ export function FeedClient({ me }) {
             <textarea
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
-              placeholder="Share something with fellow Maharajians…"
+              placeholder="Share something with fellow Maharaja Fellow…"
               rows={3}
               className="flex-1 resize-none rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink outline-none focus:border-maroon/50 focus:ring-2 focus:ring-maroon/10"
             />

@@ -37,7 +37,7 @@ const pillars = [
   {
     icon: Users,
     title: "A family that keeps in touch",
-    body: "Photos, updates and everyday moments from Maharajians — shared just among us, not the whole internet.",
+    body: "Photos, updates and everyday moments from Maharaja Fellow — shared just among us, not the whole internet.",
   },
 ];
 
@@ -50,7 +50,7 @@ const steps = [
   {
     icon: Search,
     title: "Search and discover",
-    body: "Filter by city, batch or profession to find fellow Maharajians near you, right now.",
+    body: "Filter by city, batch or profession to find fellow Maharaja Fellow near you, right now.",
   },
   {
     icon: Handshake,
@@ -206,7 +206,7 @@ export default async function HomePage() {
           <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
             <div className="flex items-end justify-between">
               <div>
-                <h2 className="font-display text-[28px] text-ink">Meet some Maharajians</h2>
+                <h2 className="font-display text-[28px] text-ink">Meet some Maharaja Fellow</h2>
                 <p className="mt-1.5 max-w-xl text-[15px] text-muted">
                   A few verified members of the Parivar, publicly listed in the directory.
                 </p>
@@ -370,7 +370,7 @@ export default async function HomePage() {
 
               <div>
                 <p className="text-[15px] leading-relaxed text-muted">
-                  For generations of Maharajians who came to Jaipur from outside the
+                  For generations of Maharaja Fellow who came to Jaipur from outside the
                   city, Gokhale Hostel was home. Built on the college campus decades
                   ago, it&rsquo;s a two-storey residence of single- and double-occupancy
                   rooms that has housed thousands of students over the years — a place
@@ -411,7 +411,7 @@ export default async function HomePage() {
             Maharaja College isn&rsquo;t just where many of us studied — it&rsquo;s one
             of Rajasthan&rsquo;s oldest institutions, tracing back to 1844, and its
             classrooms have shaped doctors, judges, civil servants, scholars, and even
-            a former Vice President of India. That history is part of why Maharajians
+            a former Vice President of India. That history is part of why Maharaja Fellow
             feel a pull toward each other decades after graduating: we didn&rsquo;t
             just share a college, we share what it stood for — rigour, service, and a
             particular kind of belonging that&rsquo;s hard to explain to anyone who
@@ -426,7 +426,7 @@ export default async function HomePage() {
               <h3 className="font-display text-lg text-ink">Our mission</h3>
               <p className="mt-2.5 text-[15px] leading-relaxed text-muted">
                 To help every Maharaja College alumnus find, trust, and reconnect
-                with fellow Maharajians — wherever they are — through a verified,
+                with fellow Maharaja Fellow — wherever they are — through a verified,
                 privacy-first community built and stewarded by the Maharaja Alumni
                 Association.
               </p>

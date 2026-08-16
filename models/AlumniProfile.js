@@ -33,7 +33,7 @@ const AlumniProfileSchema = new Schema(
     bio: { type: String, maxlength: 600, default: "" },
 
     // Controls whether this profile appears in directory search and the
-    // homepage's featured Maharajians — not whether it's viewable at all.
+    // homepage's featured Maharaja Fellow — not whether it's viewable at all.
     // A verified member can still open a private profile via a direct
     // link; it just won't be surfaced to people who aren't looking for
     // them by name.

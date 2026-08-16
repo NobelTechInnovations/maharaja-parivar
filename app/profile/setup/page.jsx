@@ -329,7 +329,7 @@ export default function ProfileSetupPage() {
                   Public profile — listed in the directory
                 </span>
                 <span className="mt-0.5 block text-xs text-muted">
-                  Verified Maharajians (and guests, if they have your link) can find you by
+                  Verified Maharaja Fellow (and guests, if they have your link) can find you by
                   name, city, batch or profession. Turn this off to stay verified but
                   unlisted. Your phone, email and address are never shown publicly either way.
                 </span>

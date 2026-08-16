@@ -12,7 +12,7 @@ export default async function MessagesPage() {
       <main className="mx-auto min-h-[60vh] max-w-3xl px-6 py-12">
         <h1 className="font-display text-[28px] text-ink">Messages</h1>
         <p className="mt-1.5 text-sm text-muted">
-          Conversations with the Maharajians you&rsquo;re connected with.
+          Conversations with the Maharaja Fellow you&rsquo;re connected with.
         </p>
         <ConversationListClient />
       </main>

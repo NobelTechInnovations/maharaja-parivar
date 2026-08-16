@@ -64,7 +64,7 @@ export default async function MyProfilePage() {
             <p className="mt-6 rounded-lg bg-sandstone/15 px-3.5 py-2.5 text-sm text-[#7a5c22]">
               Your account is still waiting on our team&rsquo;s review — you can fill in
               your profile in the meantime, it just won&rsquo;t be visible to other
-              Maharajians yet.
+              Maharaja Fellow yet.
             </p>
           )}
 

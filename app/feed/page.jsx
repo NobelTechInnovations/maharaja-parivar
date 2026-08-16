@@ -12,7 +12,7 @@ export default async function FeedPage() {
       <main className="mx-auto min-h-[60vh] max-w-2xl px-6 py-12">
         <h1 className="font-display text-[28px] text-ink">Community feed</h1>
         <p className="mt-1.5 text-sm text-muted">
-          Updates from verified Maharajians — visible to members only.
+          Updates from verified Maharaja Fellow — visible to members only.
         </p>
         <FeedClient me={{ name: me.name, photoUrl: me.photoUrl }} />
       </main>

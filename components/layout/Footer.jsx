@@ -14,8 +14,8 @@ export function Footer() {
             <div>
               An initiative of the <span className="text-ink">Maharaja College Buddies Samiti</span>
             </div>
-            <a href="mailto:info@maharajaparivar.com" className="mt-1 inline-block hover:text-maroon">
-              info@maharajaparivar.com
+            <a href="mailto:maharajaparivar@gmail.com" className="mt-1 inline-block hover:text-maroon">
+              maharajaparivar@gmail.com
             </a>
           </div>
         </div>

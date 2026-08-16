@@ -91,7 +91,7 @@ export default function RegisterPage() {
             Maharaja Parivar
           </Link>
           <h1 className="mt-6 font-display text-[34px] leading-tight text-ink text-balance">
-            Join the founding cohort of Maharajians.
+            Join the founding cohort of Maharaja Fellow.
           </h1>
           <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-muted">
             Create your account in a minute — you&rsquo;ll add your batch, course and city
