@@ -67,7 +67,7 @@ export function DiscoverClient() {
           ))}
         </Select>
         <Select value={filters.batch} onChange={update("batch")} className="lg:col-span-1">
-          <option value="">Any batch</option>
+          <option value="">Passout Year</option>
           {PASSING_YEARS.map((y) => (
             <option key={y} value={y}>{y}</option>
           ))}
