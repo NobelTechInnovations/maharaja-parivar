@@ -161,7 +161,7 @@ export default function ProfileSetupPage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center px-6 py-16">
       <Link href="/" className="mb-8 self-start font-display text-lg text-ink">
-        Maharaja Parivaar
+        Maharaja Parivar
       </Link>
 
       <Card className="p-7 sm:p-9">

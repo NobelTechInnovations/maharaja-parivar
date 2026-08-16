@@ -34,7 +34,7 @@ export async function Navbar() {
               M
             </span>
             <span className="font-display text-[18px] leading-none text-ink">
-              Maharaja Parivaar
+              Maharaja Parivar
             </span>
           </Link>
 
@@ -89,7 +89,7 @@ export async function Navbar() {
                   Log in
                 </Button>
                 <Button href="/register" variant="primary" size="md">
-                  Join the Parivaar
+                  Join the Parivar
                 </Button>
               </div>
             )}

@@ -10,7 +10,7 @@ const LABELS = {
   message: (name) => `${name} sent you a message`,
   post_like: (name) => `${name} liked your post`,
   post_comment: (name) => `${name} commented on your post`,
-  account_verified: () => "Your account has been approved — welcome to the Parivaar!",
+  account_verified: () => "Your account has been approved — welcome to the Parivar!",
 };
 
 function linkFor(n) {

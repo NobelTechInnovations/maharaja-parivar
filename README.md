@@ -1,4 +1,4 @@
-# Maharaja Parivaar
+# Maharaja Parivar
 
 The verified alumni network of University Maharaja's College, Jaipur.
 

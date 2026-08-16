@@ -88,7 +88,7 @@ export default function RegisterPage() {
       <div className="grid w-full gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-center">
         <div className="hidden lg:block">
           <Link href="/" className="font-display text-lg text-ink">
-            Maharaja Parivaar
+            Maharaja Parivar
           </Link>
           <h1 className="mt-6 font-display text-[34px] leading-tight text-ink text-balance">
             Join the founding cohort of Maharajians.
@@ -103,7 +103,7 @@ export default function RegisterPage() {
           <div className="mb-6 flex items-center justify-between lg:hidden">
             <BackLink fallbackHref="/" />
             <Link href="/" className="font-display text-lg text-ink">
-              Maharaja Parivaar
+              Maharaja Parivar
             </Link>
           </div>
           <div className="hidden lg:block">

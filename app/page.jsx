@@ -61,7 +61,7 @@ const steps = [
 
 const faqs = [
   {
-    q: "Is Maharaja Parivaar official?",
+    q: "Is Maharaja Parivar official?",
     a: "No — it's an independent, alumni-run community project. It isn't operated by Maharaja College or the University of Rajasthan.",
   },
   {
@@ -70,7 +70,7 @@ const faqs = [
   },
   {
     q: "Is it free?",
-    a: "Yes. Joining and using Maharaja Parivaar doesn't cost anything.",
+    a: "Yes. Joining and using Maharaja Parivar doesn't cost anything.",
   },
   {
     q: "How does verification actually work?",
@@ -155,7 +155,7 @@ export default async function HomePage() {
                 University Maharaja&rsquo;s College, Jaipur
               </p>
               <h1 className="mt-4 font-display text-[clamp(2.4rem,6vw,3.6rem)] leading-[1.08] text-white text-balance">
-                Maharaja Parivaar
+                Maharaja Parivar
               </h1>
               <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-white/85">
                 Once a Maharajian, always family. Find your batch, your city, your
@@ -164,7 +164,7 @@ export default async function HomePage() {
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Button href="/register" size="lg">
-                  Join the Parivaar
+                  Join the Parivar
                 </Button>
                 <Button href="/login" variant="secondary" size="lg">
                   Already a member? Log in
@@ -208,7 +208,7 @@ export default async function HomePage() {
               <div>
                 <h2 className="font-display text-[28px] text-ink">Meet some Maharajians</h2>
                 <p className="mt-1.5 max-w-xl text-[15px] text-muted">
-                  A few verified members of the Parivaar, publicly listed in the directory.
+                  A few verified members of the Parivar, publicly listed in the directory.
                 </p>
               </div>
               <Link
@@ -304,15 +304,15 @@ export default async function HomePage() {
                 From the Association
               </p>
               <h2 className="mt-2 font-display text-[28px] text-ink text-balance">
-                Why we built Maharaja Parivaar
+                Why we built Maharaja Parivar
               </h2>
               <div className="mt-6 flex items-center gap-3">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-maroon font-display text-lg text-white">
-                  MAA
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-maroon font-display text-sm text-white">
+                  MCBS
                 </span>
                 <div>
-                  <div className="text-sm font-medium text-ink">Maharaja Alumni Association</div>
-                  <div className="text-sm text-muted">Founder &amp; steward of Maharaja Parivaar</div>
+                  <div className="text-sm font-medium text-ink">Maharaja College Buddies Samiti</div>
+                  <div className="text-sm text-muted">Founder &amp; steward of Maharaja Parivar</div>
                 </div>
               </div>
             </div>
@@ -326,7 +326,7 @@ export default async function HomePage() {
                 because there was never a proper way to find each other again.
               </p>
               <p>
-                As the Maharaja Alumni Association, we hear the same story constantly:
+                As the Maharaja College Buddies Samiti, we hear the same story constantly:
                 a Maharajian meeting another one by pure chance, usually in a city far
                 from Jaipur, and both of them thinking it should have been easier than
                 luck. That&rsquo;s the whole idea behind this platform — if you studied
@@ -342,7 +342,7 @@ export default async function HomePage() {
                 ours — come find your people.
               </p>
               <p className="pt-1 font-display text-base text-ink">
-                — Maharaja Alumni Association
+                — Maharaja College Buddies Samiti
               </p>
             </div>
           </div>
@@ -359,13 +359,13 @@ export default async function HomePage() {
             </h2>
 
             <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
-              <div className="flex aspect-video items-center justify-center rounded-xl border border-dashed border-line bg-panel text-center">
-                <div className="px-6 text-sm text-muted">
-                  <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-panel-soft">
-                    📷
-                  </div>
-                  Hostel photo — coming soon
-                </div>
+              <div className="aspect-video overflow-hidden rounded-xl border border-line">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/gokhale-hostel.avif"
+                  alt="Gokhale Hostel, Maharaja College"
+                  className="h-full w-full object-cover"
+                />
               </div>
 
               <div>
@@ -434,7 +434,7 @@ export default async function HomePage() {
             <Card className="p-7">
               <h3 className="font-display text-lg text-ink">Our vision</h3>
               <p className="mt-2.5 text-[15px] leading-relaxed text-muted">
-                A Maharaja Parivaar large enough to have a Maharajian in every city
+                A Maharaja Parivar large enough to have a Maharajian in every city
                 worth visiting, and small enough that every single one of them is
                 genuinely who they say they are.
               </p>
@@ -448,7 +448,7 @@ export default async function HomePage() {
             <div className="max-w-2xl">
               <h2 className="font-display text-[28px] text-ink">What this is, and isn&rsquo;t</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-muted">
-                Maharaja Parivaar isn&rsquo;t trying to be another social network —
+                Maharaja Parivar isn&rsquo;t trying to be another social network —
                 it&rsquo;s trying to be a smaller, more trustworthy room inside one.
                 Three things guide how it&rsquo;s built:
               </p>
@@ -465,7 +465,7 @@ export default async function HomePage() {
                 <h3 className="font-display text-lg text-ink">Meeting, not metrics</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   Following and connecting exist to help you find people, not to turn
-                  the Parivaar into a numbers game.
+                  the Parivar into a numbers game.
                 </p>
               </div>
               <div>
@@ -498,11 +498,11 @@ export default async function HomePage() {
             <div>
               <h2 className="font-display text-[24px]">Are you a Maharajian?</h2>
               <p className="mt-1.5 text-[15px] text-white/80">
-                Join the founding cohort and help build the Parivaar from the first entry.
+                Join the founding cohort and help build the Parivar from the first entry.
               </p>
             </div>
             <Button href="/register" size="lg" variant="invert">
-              Join the Parivaar
+              Join the Parivar
             </Button>
           </Card>
         </section>

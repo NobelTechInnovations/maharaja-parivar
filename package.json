@@ -1,8 +1,8 @@
 {
-  "name": "maharaja-parivaar",
+  "name": "maharaja-parivar",
   "version": "0.1.0",
   "private": true,
-  "description": "Maharaja Parivaar — the verified alumni network of University Maharaja's College, Jaipur",
+  "description": "Maharaja Parivar — the verified alumni network of University Maharaja's College, Jaipur",
   "type": "module",
   "scripts": {
     "dev": "next dev",

@@ -89,7 +89,7 @@ export default async function AlumniProfilePage({ params }) {
       <Navbar />
       <main className="mx-auto max-w-3xl px-6 py-12">
         <Link href={me ? "/discover" : "/"} className="text-sm text-muted hover:text-ink">
-          {me ? "← Back to directory" : "← Back to Maharaja Parivaar"}
+          {me ? "← Back to directory" : "← Back to Maharaja Parivar"}
         </Link>
 
         <Card className="mt-4 p-7 sm:p-9">

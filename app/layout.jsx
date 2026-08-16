@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Maharaja Parivaar — Alumni network of Maharaja's College, Jaipur",
+  title: "Maharaja Parivar — Alumni network of Maharaja's College, Jaipur",
   description:
     "The verified alumni network of University Maharaja's College, Jaipur. Find your batch, your city, your people — wherever life has taken you.",
 };

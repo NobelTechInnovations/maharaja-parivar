@@ -41,7 +41,7 @@ export default function ForgotPasswordPage() {
       <div className="mb-8 flex items-center justify-between">
         <BackLink fallbackHref="/login" />
         <Link href="/" className="font-display text-lg text-ink">
-          Maharaja Parivaar
+          Maharaja Parivar
         </Link>
       </div>
 

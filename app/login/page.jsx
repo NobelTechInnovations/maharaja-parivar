@@ -60,14 +60,14 @@ function LoginForm() {
       <div className="mb-8 flex items-center justify-between">
         <BackLink fallbackHref="/" />
         <Link href="/" className="font-display text-lg text-ink">
-          Maharaja Parivaar
+          Maharaja Parivar
         </Link>
       </div>
 
       <Card className="p-7 sm:p-9">
         <h1 className="text-lg font-semibold text-ink">Log in</h1>
         <p className="mt-1 text-sm text-muted">
-          New here? <Link href="/register" className="text-maroon hover:underline">Join the Parivaar</Link>.
+          New here? <Link href="/register" className="text-maroon hover:underline">Join the Parivar</Link>.
         </p>
         {next && (
           <p className="mt-3 rounded-lg bg-panel-soft px-3.5 py-2.5 text-xs text-muted">
