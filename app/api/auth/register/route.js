@@ -3,7 +3,8 @@ import { ensureDatabaseConnected } from "@/lib/db";
 import User from "@/models/User";
 import AlumniProfile from "@/models/AlumniProfile";
 import { hashPassword, signSession, setSessionCookie } from "@/lib/auth";
-import { sendWelcomeEmail } from "@/lib/email";
+import { sendWelcomeEmail, sendAccountApprovedEmail } from "@/lib/email";
+import { getSettings } from "@/lib/settings";
 
 const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "")
   .split(",")
@@ -50,6 +51,8 @@ export async function POST(request) {
   }
 
   const isFounderAdmin = ADMIN_EMAILS.includes(normalizedEmail);
+  const settings = await getSettings();
+  const autoApprove = isFounderAdmin || settings.autoApproveEnabled;
 
   const user = await User.create({
     name,
@@ -57,8 +60,8 @@ export async function POST(request) {
     passwordHash: await hashPassword(password),
     phone,
     role: isFounderAdmin ? "admin" : "member",
-    verificationStatus: isFounderAdmin ? "verified" : "pending",
-    verifiedAt: isFounderAdmin ? new Date() : undefined,
+    verificationStatus: autoApprove ? "verified" : "pending",
+    verifiedAt: autoApprove ? new Date() : undefined,
   });
 
   // Just the account for now — batch, course and location are collected
@@ -69,7 +72,14 @@ export async function POST(request) {
   await setSessionCookie(token);
 
   // Don't let a slow/misconfigured SMTP provider hold up registration.
-  sendWelcomeEmail(user).catch(() => {});
+  // Auto-approved accounts (founder email, or the admin auto-approve
+  // toggle) get the "you're verified" email directly instead of the
+  // "under review" one — sending both back to back would be confusing.
+  if (autoApprove) {
+    sendAccountApprovedEmail(user).catch(() => {});
+  } else {
+    sendWelcomeEmail(user).catch(() => {});
+  }
 
   return NextResponse.json({
     user: {

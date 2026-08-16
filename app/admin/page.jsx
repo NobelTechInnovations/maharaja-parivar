@@ -3,6 +3,7 @@ import { requirePageUser } from "@/lib/pageAuth";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { AdminClient } from "@/components/admin/AdminClient";
+import { AutoApproveToggle } from "@/components/admin/AutoApproveToggle";
 
 export default async function AdminPage() {
   const me = await requirePageUser();
@@ -14,8 +15,9 @@ export default async function AdminPage() {
       <main className="mx-auto min-h-[60vh] max-w-5xl px-6 py-12">
         <h1 className="font-display text-[28px] text-ink">Verification queue</h1>
         <p className="mt-1.5 text-sm text-muted">
-          Every new Maharajian waits here until you personally approve them.
+          Every new Maharajian waits here until approved.
         </p>
+        <AutoApproveToggle />
         <AdminClient />
       </main>
       <Footer />

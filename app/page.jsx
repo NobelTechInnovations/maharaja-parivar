@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     q: "How does verification actually work?",
-    a: "The founder personally checks the college details you provide before your profile becomes visible to anyone else.",
+    a: "Our team checks the college details you provide before your profile becomes visible to anyone else.",
   },
   {
     q: "Will my phone number or address be public?",
@@ -296,23 +296,23 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Founder story */}
+        {/* Why we built this */}
         <section id="about" className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
           <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-start">
             <div className="lg:sticky lg:top-24">
               <p className="text-xs font-medium uppercase tracking-wide text-maroon-soft">
-                Founder&rsquo;s note
+                From the Association
               </p>
               <h2 className="mt-2 font-display text-[28px] text-ink text-balance">
-                Why I built Maharaja Parivaar
+                Why we built Maharaja Parivaar
               </h2>
               <div className="mt-6 flex items-center gap-3">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-maroon font-display text-lg text-white">
-                  JS
+                  MAA
                 </span>
                 <div>
-                  <div className="text-sm font-medium text-ink">Jitendra Sain</div>
-                  <div className="text-sm text-muted">Founder, Maharaja Parivaar</div>
+                  <div className="text-sm font-medium text-ink">Maharaja Alumni Association</div>
+                  <div className="text-sm text-muted">Founder &amp; steward of Maharaja Parivaar</div>
                 </div>
               </div>
             </div>
@@ -326,22 +326,119 @@ export default async function HomePage() {
                 because there was never a proper way to find each other again.
               </p>
               <p>
-                I&rsquo;d meet a fellow Maharajian by pure chance, usually in a city
-                far from Jaipur, and it always felt like it should have been
-                easier than luck. That&rsquo;s the whole idea behind this: if you
-                studied at Maharaja College, there should be a simple way to find
-                out who else from your college is near you today — and to trust
-                that the person you find is genuinely who they say they are.
+                As the Maharaja Alumni Association, we hear the same story constantly:
+                a Maharajian meeting another one by pure chance, usually in a city far
+                from Jaipur, and both of them thinking it should have been easier than
+                luck. That&rsquo;s the whole idea behind this platform — if you studied
+                at Maharaja College, there should be a simple way to find out who else
+                from your college is near you today, and to trust that the person you
+                find is genuinely who they say they are.
               </p>
               <p>
-                That&rsquo;s why every account here is checked by hand before it
-                goes live, and why nobody&rsquo;s phone number or address is ever
-                shared without their say-so. I want this to stay small enough to
-                feel like family, even as it grows. If you&rsquo;re a Maharajian,
-                this is yours as much as it is mine — come find your people.
+                That&rsquo;s why every account here is checked before it goes live, and
+                why nobody&rsquo;s phone number or address is ever shared without their
+                say-so. We want this to stay small enough to feel like family, even as
+                it grows. If you&rsquo;re a Maharajian, this is yours as much as it is
+                ours — come find your people.
               </p>
-              <p className="pt-1 font-display text-base text-ink">— Jitendra</p>
+              <p className="pt-1 font-display text-base text-ink">
+                — Maharaja Alumni Association
+              </p>
             </div>
+          </div>
+        </section>
+
+        {/* Gokhale Hostel */}
+        <section className="border-y border-line/70 bg-panel-soft">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+            <p className="text-xs font-medium uppercase tracking-wide text-maroon-soft">
+              Campus life
+            </p>
+            <h2 className="mt-2 font-display text-[28px] text-ink">
+              Gokhale Hostel, Maharaja College
+            </h2>
+
+            <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
+              <div className="flex aspect-video items-center justify-center rounded-xl border border-dashed border-line bg-panel text-center">
+                <div className="px-6 text-sm text-muted">
+                  <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-panel-soft">
+                    📷
+                  </div>
+                  Hostel photo — coming soon
+                </div>
+              </div>
+
+              <div>
+                <p className="text-[15px] leading-relaxed text-muted">
+                  For generations of Maharajians who came to Jaipur from outside the
+                  city, Gokhale Hostel was home. Built on the college campus decades
+                  ago, it&rsquo;s a two-storey residence of single- and double-occupancy
+                  rooms that has housed thousands of students over the years — a place
+                  as many alumni remember as vividly as their classrooms.
+                </p>
+                <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-4 text-sm">
+                  <div>
+                    <dt className="text-xs font-medium uppercase tracking-wide text-muted">Capacity</dt>
+                    <dd className="mt-0.5 text-ink">~220 students</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-medium uppercase tracking-wide text-muted">Rooms</dt>
+                    <dd className="mt-0.5 text-ink">45 double · 70 single</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-medium uppercase tracking-wide text-muted">Dining</dt>
+                    <dd className="mt-0.5 text-ink">Cooperative mess hall</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-medium uppercase tracking-wide text-muted">Recreation</dt>
+                    <dd className="mt-0.5 text-ink">Reading room, TV lounge, volleyball court</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What Maharaja College means to us */}
+        <section className="mx-auto max-w-4xl px-6 py-16 text-center sm:py-20">
+          <p className="text-xs font-medium uppercase tracking-wide text-maroon-soft">
+            Our college
+          </p>
+          <h2 className="mt-2 font-display text-[28px] text-ink">
+            What Maharaja College means to us
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-muted">
+            Maharaja College isn&rsquo;t just where many of us studied — it&rsquo;s one
+            of Rajasthan&rsquo;s oldest institutions, tracing back to 1844, and its
+            classrooms have shaped doctors, judges, civil servants, scholars, and even
+            a former Vice President of India. That history is part of why Maharajians
+            feel a pull toward each other decades after graduating: we didn&rsquo;t
+            just share a college, we share what it stood for — rigour, service, and a
+            particular kind of belonging that&rsquo;s hard to explain to anyone who
+            wasn&rsquo;t there.
+          </p>
+        </section>
+
+        {/* Mission & Vision */}
+        <section className="mx-auto max-w-6xl px-6 pb-16 sm:pb-20">
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Card className="p-7">
+              <h3 className="font-display text-lg text-ink">Our mission</h3>
+              <p className="mt-2.5 text-[15px] leading-relaxed text-muted">
+                To help every Maharaja College alumnus find, trust, and reconnect
+                with fellow Maharajians — wherever they are — through a verified,
+                privacy-first community built and stewarded by the Maharaja Alumni
+                Association.
+              </p>
+            </Card>
+            <Card className="p-7">
+              <h3 className="font-display text-lg text-ink">Our vision</h3>
+              <p className="mt-2.5 text-[15px] leading-relaxed text-muted">
+                A Maharaja Parivaar large enough to have a Maharajian in every city
+                worth visiting, and small enough that every single one of them is
+                genuinely who they say they are.
+              </p>
+            </Card>
           </div>
         </section>
 

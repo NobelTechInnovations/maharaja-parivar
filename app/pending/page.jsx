@@ -17,7 +17,7 @@ export default async function PendingPage() {
         </span>
         <h1 className="mt-4 text-lg font-semibold text-ink">Your account is under review</h1>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          Thanks for joining, {user.name.split(" ")[0]}. The founder reviews every new
+          Thanks for joining, {user.name.split(" ")[0]}. Our team reviews every new
           registration by hand to keep the directory genuinely Maharaja College alumni
           only — you&rsquo;ll be notified by email once your profile is verified.
         </p>

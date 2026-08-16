@@ -12,7 +12,7 @@ export function Footer() {
           </div>
           <div className="text-sm text-muted">
             <div>
-              Founded by <span className="text-ink">Jitendra Sain</span>
+              An initiative of the <span className="text-ink">Maharaja Alumni Association</span>
             </div>
             <a href="mailto:info@maharajaparivar.in" className="mt-1 inline-block hover:text-maroon">
               info@maharajaparivar.in

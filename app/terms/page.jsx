@@ -10,7 +10,7 @@ const sections = [
   },
   {
     title: "Verification",
-    body: "Every account is reviewed by the founder before it's visible to anyone else. You're responsible for the accuracy of what you submit — batch, course, and current details. Deliberately false information can get an account rejected or removed.",
+    body: "Every account is reviewed by our team before it's visible to anyone else. You're responsible for the accuracy of what you submit — batch, course, and current details. Deliberately false information can get an account rejected or removed.",
   },
   {
     title: "How your information is used",

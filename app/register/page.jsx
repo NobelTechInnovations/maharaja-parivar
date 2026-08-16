@@ -95,7 +95,7 @@ export default function RegisterPage() {
           </h1>
           <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-muted">
             Create your account in a minute — you&rsquo;ll add your batch, course and city
-            right after, and the founder reviews every new member by hand.
+            right after, and our team reviews every new member by hand.
           </p>
         </div>
 
@@ -116,7 +116,7 @@ export default function RegisterPage() {
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-5">
             <Field label="Full name">
-              <Input required value={form.name} onChange={update("name")} placeholder="Jitendra Sain" />
+              <Input required value={form.name} onChange={update("name")} placeholder="Ramesh Sharma" />
             </Field>
 
             <Field
@@ -174,7 +174,7 @@ export default function RegisterPage() {
 
             <p className="text-center text-xs text-muted">
               Next you&rsquo;ll tell us about your time at Maharaja College — that&rsquo;s
-              what the founder reviews before your profile goes live.
+              what our team reviews before your profile goes live.
             </p>
           </form>
         </Card>

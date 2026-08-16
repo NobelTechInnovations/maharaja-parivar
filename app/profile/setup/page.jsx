@@ -167,7 +167,7 @@ export default function ProfileSetupPage() {
       <Card className="p-7 sm:p-9">
         <h1 className="text-lg font-semibold text-ink">Tell us about your Maharaja days</h1>
         <p className="mt-1 text-sm text-muted">
-          This is what the founder looks at to verify you&rsquo;re a genuine Maharajian —
+          This is what our team looks at to verify you&rsquo;re a genuine Maharajian —
           and what other alumni will search by once you&rsquo;re in the directory.
         </p>
 
