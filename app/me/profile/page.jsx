@@ -33,9 +33,14 @@ export default async function MyProfilePage() {
       <main className="mx-auto max-w-3xl px-6 py-12">
         <div className="flex items-center justify-between">
           <h1 className="font-display text-[28px] text-ink">My profile</h1>
-          <Button href="/profile/setup" variant="secondary" size="md">
-            Edit profile
-          </Button>
+          <div className="flex gap-2">
+            <Button href="/me/change-password" variant="ghost" size="md">
+              Change password
+            </Button>
+            <Button href="/profile/setup" variant="secondary" size="md">
+              Edit profile
+            </Button>
+          </div>
         </div>
 
         <Card className="mt-6 p-7 sm:p-9">
